@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Your Name</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Welcome to Your Dashboard</h1>
+        </header>
+        <main>
+            <p>You are logged in successfully!</p>
+            <button id="logout">Logout</button>
+
+            <h2>Your Portfolio</h2>
+            <ul id="portfolio-items">
+                <!-- Portfolio items will be dynamically loaded here -->
+            </ul>
+
+            <h2>About Me</h2>
+            <p>Hi! I'm [Your Name], a web developer with a passion for creating user-friendly interfaces and engaging experiences. I enjoy working on innovative projects and continuously learning new technologies.</p>
+
+            <h2>Contact Me</h2>
+            <p>Email: <a href="mailto:your-email@example.com">your-email@example.com</a></p>
+            <p>Connect with me on social media:</p>
+            <ul>
+                <li><a href="https://github.com/your-github" target="_blank">GitHub</a></li>
+                <li><a href="https://www.linkedin.com/in/your-linkedin" target="_blank">LinkedIn</a></li>
+            </ul>
+        </main>
+    </div>
+
+    <script>
+        const projects = [
+            { name: "Project 1", description: "Description of Project 1", link: "link-to-project1" },
+            { name: "Project 2", description: "Description of Project 2", link: "link-to-project2" },
+            { name: "Project 3", description: "Description of Project 3", link: "link-to-project3" },
+        ];
+
+        const portfolioItems = document.getElementById('portfolio-items');
+        projects.forEach(project => {
+            const li = document.createElement('li');
+            li.innerHTML = `<strong>${project.name}:</strong> ${project.description} <a href="${project.link}" target="_blank">View Project</a>`;
+            portfolioItems.appendChild(li);
+        });
+
+        document.getElementById('logout').addEventListener('click', function() {
+            localStorage.clear(); // Clear stored user data
+            window.location.href = 'index.html'; // Redirect to login page
+        });
+    </script>
+</body>
+</html>
